@@ -20,7 +20,7 @@ pipeline {
             steps {
                 withFolderProperties {
                     script {
-                        cloud.setRegion("us-south").setIamApiKey(${env.IAM_APIKEY})
+                        cloud.setRegion("us-south").setIamApiKey("${env.IAM_APIKEY}")
                     }
                 }
                 
@@ -37,7 +37,7 @@ pipeline {
             steps {
                 withFolderProperties {
                     script {
-                        cloud.deploy(new Kubernetes(), ${env.CLUSTER_ID})
+                        cloud.deploy(new Kubernetes(), "${env.CLUSTER_ID}")
                     }
                 }
                 
