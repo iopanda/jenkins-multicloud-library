@@ -1,5 +1,6 @@
-@Library('jenkins-multicloud-library@feature0')_
-import org.iopanda.devops.environments.impl.ibmcloud.IBMCloudEnvironment;
+@Library('jenkins-multicloud-library@feature0')
+import org.iopanda.devops.environments.impl.ibmcloud.IBMCloudEnvironment
+def cloud = new IBMCloudEnvironment()
 
 pipeline {
     agent {label 'kube-helm3-cicd'}
@@ -8,7 +9,6 @@ pipeline {
         stage('stage 1') {
             steps{
                 script{
-                    def cloud = new IBMCloudEnvironment();
                     cloud.init()
                 }
             }
