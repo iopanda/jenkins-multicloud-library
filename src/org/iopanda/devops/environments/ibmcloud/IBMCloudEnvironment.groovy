@@ -38,9 +38,9 @@ class IBMCloudEnvironment extends Environment {
     }
 
     void deploy(Kubernetes k8s, String cluster){
-        step.sh("ibmcloud ks cluster config --cluster ${cluster}")
-        step.sh("kubectl config current-context")
-        step.sh("kubectl get nodes")
+        steps.sh("ibmcloud ks cluster config --cluster ${cluster}")
+        steps.sh("kubectl config current-context")
+        steps.sh("kubectl get nodes")
     }
 
 
