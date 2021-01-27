@@ -1,4 +1,4 @@
-package org.iopanda.devops.environments.impl.ibmcloud
+package org.iopanda.devops.environments.ibmcloud
 
 import org.iopanda.devops.Environment
 import org.iopanda.devops.deployer.Kubernetes
