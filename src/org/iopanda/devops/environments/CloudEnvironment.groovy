@@ -1,4 +1,4 @@
-package org.iopanda.devops.environments.CloudEnvironment
+package org.iopanda.devops.environments
 
 abstract class CloudEnvironment {
     def steps;

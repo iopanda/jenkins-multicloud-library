@@ -1,4 +1,4 @@
-package org.iopanda.devops.environments.impl.ibmcloud.IBMCloudEnvironment
+package org.iopanda.devops.environments.impl.ibmcloud
 
 import org.iopanda.devops.environments.CloudEnvironment
 
