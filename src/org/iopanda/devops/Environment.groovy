@@ -1,10 +1,9 @@
 package org.iopanda.devops
 
-abstract class Environment implements Serializable {
-    def steps;
-    Environment(steps) {
-        this.steps = steps
-    }
+import org.iopanda.devops.Common
+
+abstract class Environment extends Common {
+    Environment(steps) { super(steps) }
 
     abstract void init()
     abstract void connect()

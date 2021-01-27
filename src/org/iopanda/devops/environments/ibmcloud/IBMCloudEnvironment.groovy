@@ -8,9 +8,8 @@ class IBMCloudEnvironment extends Environment {
     private String region = "us-south"
     private String iam_apikey
 
-    IBMCloudEnvironment(steps) {
-        super(steps)
-    }
+    IBMCloudEnvironment(steps) { super(steps) }
+    
     IBMCloudEnvironment setHost(String host){
         this.host = host;
         return this;

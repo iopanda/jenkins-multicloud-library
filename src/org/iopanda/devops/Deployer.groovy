@@ -1,8 +1,8 @@
 package org.iopanda.devops
 
-abstract class Deployer implements Serializable {
-    def steps;
-    Deployer(steps) {
-        this.steps = steps
-    }
+import org.iopanda.devops.Common
+
+abstract class Deployer extends Common {
+    Deployer(steps) { super(steps) }
+
 }
