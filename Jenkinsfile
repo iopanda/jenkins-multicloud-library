@@ -1,7 +1,7 @@
 @Library('jenkins-multicloud-library@feature0')
 import org.iopanda.devops.environments.impl.ibmcloud.IBMCloudEnvironment
 
-def cloud = new IBMCloudEnvironment()
+def cloud = new IBMCloudEnvironment(this)
 
 pipeline {
     agent { label 'kube-helm3-cicd' }
