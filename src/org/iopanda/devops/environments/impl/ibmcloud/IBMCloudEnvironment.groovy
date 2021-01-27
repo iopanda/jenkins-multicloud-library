@@ -1,4 +1,6 @@
-import org.iopanda.devops.environments.CloudEnvironment;
+package org.iopanda.devops.environments.impl.ibmcloud.IBMCloudEnvironment
+
+import org.iopanda.devops.environments.CloudEnvironment
 
 class IBMCloudEnvironment implements CloudEnvironment {
 
