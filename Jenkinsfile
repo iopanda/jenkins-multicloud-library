@@ -18,9 +18,12 @@ pipeline {
         }
         stage('config ibmcloud-cli') {
             steps {
-                script {
-                    cloud.setRegion("us-south").setIamApiKey($IAM_APIKEY)
+                withFolderProperties {
+                    script {
+                        cloud.setRegion("us-south").setIamApiKey(${env.IAM_APIKEY})
+                    }
                 }
+                
             }
         }
         stage('ibmcloud login') {
@@ -32,9 +35,12 @@ pipeline {
         }
         stage('deploy k8s') {
             steps {
-                script {
-                    cloud.deploy(new Kubernetes(), $IAM_APIKEY)
+                withFolderProperties {
+                    script {
+                        cloud.deploy(new Kubernetes(), ${env.CLUSTER_ID})
+                    }
                 }
+                
             }
         }
     }
