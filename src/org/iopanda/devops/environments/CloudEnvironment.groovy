@@ -1,6 +1,6 @@
 package org.iopanda.devops.environments
 
-abstract class CloudEnvironment implements Serializable {
+abstract class CloudEnvironment {
     def steps;
     CloudEnvironment(steps) {
         this.steps = steps
