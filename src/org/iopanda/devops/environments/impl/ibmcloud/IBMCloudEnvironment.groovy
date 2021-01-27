@@ -2,7 +2,7 @@ package org.iopanda.devops.environments.impl.ibmcloud
 
 import org.iopanda.devops.environments.CloudEnvironment
 
-class IBMCloudEnvironment implements CloudEnvironment, Serializable {
+class IBMCloudEnvironment extends CloudEnvironment {
 
     IBMCloudEnvironment(steps) {
         super(steps)
