@@ -34,8 +34,8 @@ pipeline {
         }
         stage('deploy k8s') {
             steps {
-                withFolderProperties {
-                    script {
+                script {
+                    withFolderProperties {
                         cloud.deploy(new Kubernetes(), "${env.CLUSTER_ID}")
                     }
                 }
