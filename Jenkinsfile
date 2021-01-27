@@ -1,4 +1,4 @@
-@Library('jenkins-multicloud-library')_
+@Library('jenkins-multicloud-library@feature0')_
 import org.iopanda.devops.environments.impl.ibmcloud.IBMCloudEnvironment;
 
 pipeline {
