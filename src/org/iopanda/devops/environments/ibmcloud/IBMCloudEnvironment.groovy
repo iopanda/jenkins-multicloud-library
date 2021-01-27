@@ -11,11 +11,14 @@ class IBMCloudEnvironment extends Environment {
     IBMCloudEnvironment(steps) {
         super(steps)
     }
+    IBMCloudEnvironment setHost(String host){
+        this.host = host;
+        return this;
+    }
     IBMCloudEnvironment setRegion(String region){
         this.region = region
         return this
     }
-
     IBMCloudEnvironment setIamApiKey(String iam_apikey){
         this.iam_apikey = iam_apikey
         return this
@@ -27,7 +30,7 @@ class IBMCloudEnvironment extends Environment {
     }
 
     void connect(){
-        steps.sh "ibmcloud login -a ${host} -r ${region} -g default --apikey " + iam_apikey
+        steps.sh "ibmcloud login -a ${host} -r ${region} -g default --apikey ${iam_apikey}"
     }
 
     void run(String cmd){
