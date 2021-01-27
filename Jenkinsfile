@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     cloud.init()
-                    cloud.login('us-south', $CLUSTER)
+                    cloud.login('us-south', $CLUSTER_ID)
                     cloud.deploy(new Kubernetes(), $IAM_APIKEY)
                 }
             }
