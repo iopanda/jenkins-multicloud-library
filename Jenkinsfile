@@ -1,5 +1,5 @@
 @Library('jenkins-multicloud-library@feature0')
-import org.iopanda.devops.environments.impl.ibmcloud.IBMCloudEnvironment.*
+import org.iopanda.devops.environments.impl.ibmcloud.IBMCloudEnvironment
 
 def cloud = new IBMCloudEnvironment()
 
