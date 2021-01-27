@@ -10,8 +10,8 @@ class IBMCloudEnvironment extends Environment {
 
     void init(){
         String cmd = "curl -sL https://raw.githubusercontent.com/IBM-Cloud/ibm-cloud-developer-tools/master/linux-installer/idt-installer | bash"
-        steps.sh cmd
-        steps.sh "ibmcloud -h"
+        steps.sh(cmd)
+        steps.sh("ibmcloud -h")
     }
 
     void connect(){
