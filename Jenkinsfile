@@ -18,12 +18,11 @@ pipeline {
         }
         stage('config ibmcloud-cli') {
             steps {
-                withFolderProperties {
-                    script {
+                script {
+                    withFolderProperties {
                         cloud.setRegion("us-south").setIamApiKey("${env.IAM_APIKEY}")
                     }
                 }
-                
             }
         }
         stage('ibmcloud login') {
