@@ -9,15 +9,15 @@ class IBMCloudEnvironment extends CloudEnvironment {
     }
 
     void init(){
-        steps.sh "init"
+        steps.sh "echo init"
     }
     void connect(){
-        steps.sh "connect"
+        steps.sh "echo connect"
     }
     void build(){
-        steps.sh "build"
+        steps.sh "echo build"
     }
     void deploy(){
-        steps.sh "deploy"
+        steps.sh "echo deploy"
     }
 }
