@@ -9,11 +9,30 @@ pipeline {
     agent { label 'kube-helm3-cicd' }
 
     stages {
-        stage('stage 1') {
+        stage('install ibmcloud-cli') {
             steps {
                 script {
                     cloud.init()
-                    cloud.login('us-south', $CLUSTER_ID)
+                }
+            }
+        }
+        stage('config ibmcloud-cli') {
+            steps {
+                script {
+                    cloud.setRegion("us-south").setIamApiKey($IAM_APIKEY)
+                }
+            }
+        }
+        stage('ibmcloud login') {
+            steps {
+                script {
+                    cloud.connect()
+                }
+            }
+        }
+        stage('deploy k8s') {
+            steps {
+                script {
                     cloud.deploy(new Kubernetes(), $IAM_APIKEY)
                 }
             }

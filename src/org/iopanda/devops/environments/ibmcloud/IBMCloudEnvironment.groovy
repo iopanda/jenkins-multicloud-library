@@ -4,9 +4,21 @@ import org.iopanda.devops.Environment
 import org.iopanda.devops.deployer.Kubernetes
 
 class IBMCloudEnvironment extends Environment {
+    private String host = "cloud.ibm.com"
+    private String region = "us-south"
+    private String iam_apikey
 
     IBMCloudEnvironment(steps) {
         super(steps)
+    }
+    IBMCloudEnvironment setRegion(String region){
+        this.region = region
+        return this
+    }
+
+    IBMCloudEnvironment setIamApiKey(String iam_apikey){
+        this.iam_apikey = iam_apikey
+        return this
     }
 
     void init(){
@@ -14,8 +26,8 @@ class IBMCloudEnvironment extends Environment {
         steps.sh("ibmcloud -h")
     }
 
-    void connect(String region, String iam_apikey){
-        steps.sh "ibmcloud login -a cloud.ibm.com -r ${region} -g default --apikey ${iam_apikey}"
+    void connect(){
+        steps.sh "ibmcloud login -a ${host} -r ${region} -g default --apikey " + iam_apikey
     }
 
     void run(String cmd){
