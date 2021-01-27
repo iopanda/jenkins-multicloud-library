@@ -13,8 +13,8 @@ pipeline {
             steps {
                 script {
                     cloud.init()
-                    cloud.login('us-south', 'ktitUajO3-2rDcH3xT98FFqrM0hLJUtMyluhBqks79EQ')
-                    cloud.deploy(new Kubernetes(), "c5295d9babbc465ba79c16891bb85920")
+                    cloud.login('us-south', $CLUSTER)
+                    cloud.deploy(new Kubernetes(), $IAM_APIKEY)
                 }
             }
         }
