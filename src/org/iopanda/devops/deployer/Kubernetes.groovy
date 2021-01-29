@@ -1,7 +1,7 @@
 package org.iopanda.devops.deployer
 
 import org.iopanda.devops.Common
-import org.iopanda.devops.deployer.K8sResource
+import org.iopanda.devops.deployer.kubernetes.K8sResource
 
 class Kubernetes extends Common {
     Kubernetes(steps) { super(steps) }
