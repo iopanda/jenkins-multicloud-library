@@ -1,5 +1,6 @@
 package org.iopanda.devops.common.message
 
+def env = build.getEnvVars()
 class PipelineResult extends Message {
     PipelineResult(String status){
         String clip
