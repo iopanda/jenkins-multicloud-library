@@ -38,7 +38,7 @@ pipeline {
             steps {
                 script {
                     withFolderProperties {
-                        cloud.deploy(new Kubernetes(), "${env.CLUSTER_ID}")
+                        cloud.deploy(new Kubernetes(this), "${env.CLUSTER_ID}")
                     }
                 }
                 
