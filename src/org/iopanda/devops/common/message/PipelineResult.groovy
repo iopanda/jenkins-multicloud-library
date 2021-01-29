@@ -17,6 +17,6 @@ class PipelineResult extends Message {
                 setColor("danger")
                 clip = "unclear"
         }
-        setMessage("*${status}*:  Job *${JOB_NAME}* build *${env.BUILD_NUMBER}* ${clip}!\nCheck pipeline logs for more details: <${RUN_DISPLAY_URL}|Click>.")
+        setMessage("*${status}*:  Job *${JOB_NAME}* build *${BUILD_NUMBER}* ${clip}!\nCheck pipeline logs for more details: <${RUN_DISPLAY_URL}|Click>.")
     }
 }
