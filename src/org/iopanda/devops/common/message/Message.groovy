@@ -1,6 +1,6 @@
 package org.iopanda.devops.common.message
 
-class Message {
+class Message implements Serializable {
     private String color
     private String message
 
@@ -10,7 +10,7 @@ class Message {
     void setMessage(String message){
         this.message = message
     }
-    
+
     String getColor(){
         return color
     }
