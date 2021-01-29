@@ -5,16 +5,16 @@ class PipelineResult extends Message {
         String clip
         switch (status) {
             case "SUCCESS":
-                color = "good"
+                setColor("good")
                 clip = "done"
             case "FAILURE":
-                color = "danger"
+                setColor("danger")
                 clip = "failed"
             case "UNSTABLE":
-                color = "warning"
+                setColor("warning")
                 clip = "unstable"
             default:
-                color = "danger"
+                setColor("danger")
                 clip = "unclear"
         }
         message = "*${status}*:  Job *${env.JOB_NAME}* build *${env.BUILD_NUMBER}* ${clip}!\nCheck pipeline logs for more details: <${env.RUN_DISPLAY_URL}|Click>."
