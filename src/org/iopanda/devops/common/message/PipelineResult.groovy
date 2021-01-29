@@ -1,6 +1,5 @@
 package org.iopanda.devops.common.message
 
-def env = build.getEnvVars()
 class PipelineResult extends Message {
     PipelineResult(String status){
         String clip
@@ -18,6 +17,6 @@ class PipelineResult extends Message {
                 color = "danger"
                 clip = "unclear"
         }
-        setMessage("*${status}*:  Job *${env.JOB_NAME}* build *${env.BUILD_NUMBER}* ${clip}!\nCheck pipeline logs for more details: <${env.RUN_DISPLAY_URL}|Click>.")
+        setMessage("*${status}*:  Job *${steps.env.JOB_NAME}* build *${steps.env.BUILD_NUMBER}* ${clip}!\nCheck pipeline logs for more details: <${steps.env.RUN_DISPLAY_URL}|Click>.")
     }
 }

@@ -1,6 +1,7 @@
 package org.iopanda.devops.common.message
 
 class Message implements Serializable {
+    def steps
     String color
     String message
     
@@ -9,5 +10,8 @@ class Message implements Serializable {
     }
     public String getMessage(){
         return message
+    }
+    public void setSteps(steps){
+        this.steps = steps
     }
 }
