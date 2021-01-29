@@ -5,19 +5,18 @@ class PipelineResult extends Message {
         String clip
         switch (status) {
             case "SUCCESS":
-                setColor("good")
+                color = "good"
                 clip = "done"
             case "FAILURE":
-                setColor("danger")
+                color = "danger"
                 clip = "failed"
             case "UNSTABLE":
-                setColor("warning")
+                color = "warning"
                 clip = "unstable"
             default:
-                setColor("danger")
+                color = "danger"
                 clip = "unclear"
         }
-        def env = System.getenv()
-        setMessage("*${status}*:  Job *${env['JOB_NAME']}* build *${env['BUILD_NUMBER']}* ${clip}!\nCheck pipeline logs for more details: <${env['RUN_DISPLAY_URL']}|Click>.")
+        setMessage("*${status}*:  Job *${env.JOB_NAME}* build *${env.BUILD_NUMBER}* ${clip}!\nCheck pipeline logs for more details: <${env.RUN_DISPLAY_URL}|Click>.")
     }
 }
