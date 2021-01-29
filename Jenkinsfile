@@ -2,6 +2,8 @@
 
 import org.iopanda.devops.environments.ibmcloud.IBMCloudEnvironment
 import org.iopanda.devops.deployer.Kubernetes
+import org.iopanda.devops.common.Slack
+import org.iopanda.devops.common.message.*
 
 def cloud = new IBMCloudEnvironment(this)
 
@@ -40,6 +42,13 @@ pipeline {
                     }
                 }
                 
+            }
+        }
+        stage('slack'){
+            steps {
+                script {
+                    Slack.send("app-preview", new PipelineResult("${currentBuild.currentResult}"))
+                }
             }
         }
     }
