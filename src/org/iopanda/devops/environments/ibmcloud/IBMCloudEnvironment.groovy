@@ -25,6 +25,7 @@ class IBMCloudEnvironment extends Environment {
 
     void init(){
         steps.sh("curl -sL https://raw.githubusercontent.com/IBM-Cloud/ibm-cloud-developer-tools/master/linux-installer/idt-installer | bash")
+        steps.sh("ibmcloud config --check-version=false")
         steps.sh("ibmcloud -h")
     }
 
@@ -37,7 +38,7 @@ class IBMCloudEnvironment extends Environment {
     }
 
     void deploy(Kubernetes k8s, String cluster){
-        steps.sh("ibmcloud ks cluster config --cluster ${cluster} --check-version=false")
+        steps.sh("ibmcloud ks cluster config --cluster ${cluster})
         steps.sh("kubectl config current-context")
         steps.sh("kubectl get nodes")
     }
