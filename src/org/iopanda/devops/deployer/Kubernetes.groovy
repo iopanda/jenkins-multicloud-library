@@ -4,6 +4,7 @@ import org.iopanda.devops.Common
 import org.iopanda.devops.deployer.kubernetes.K8sResource
 
 class Kubernetes extends Common {
+    Kubernetes() {super(null)}
     Kubernetes(steps) { super(steps) }
 
     void create(K8sResource resource){
