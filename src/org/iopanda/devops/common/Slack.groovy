@@ -8,12 +8,8 @@ class Slack extends Common {
 
     Slack(steps){ super(steps) }
 
-    static void send(String channel, Message message) {
+    void send(Message message) {
         message.setSteps(steps)
         slackSend(channel: "${channel}", color: "${message.getColor()}", message: "${message.getMessage()}")
-    }
-
-    void send(Message message) {
-        Slack.send(channel, message)
     }
 }

@@ -6,6 +6,7 @@ import org.iopanda.devops.common.Slack
 import org.iopanda.devops.common.message.*
 
 def cloud = new IBMCloudEnvironment(this)
+def slack = new Slack(this)
 
 pipeline {
     agent { label 'kube-helm3-cicd' }
@@ -47,7 +48,7 @@ pipeline {
         stage('slack'){
             steps {
                 script {
-                    Slack.send("app-preview", new PipelineResult("${currentBuild.currentResult}"))
+                    slack.send("app-preview", new PipelineResult("${currentBuild.currentResult}"))
                 }
             }
         }
