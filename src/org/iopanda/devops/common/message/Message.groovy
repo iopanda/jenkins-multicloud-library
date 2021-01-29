@@ -4,18 +4,18 @@ class Message implements Serializable {
     private String color
     private String message
 
-    void setColor(String color){
+    public void setColor(String color){
         this.color = color
     }
-    void setMessage(String message){
+    public void setMessage(String message){
         this.message = message
     }
 
-    String getColor(){
+    public String getColor(){
         return color
     }
 
-    String getMessage(){
+    public String getMessage(){
         return message
     }
 }
