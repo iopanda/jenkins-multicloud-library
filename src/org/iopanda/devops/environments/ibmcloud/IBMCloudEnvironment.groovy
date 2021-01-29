@@ -9,7 +9,7 @@ class IBMCloudEnvironment extends Environment {
     private String iam_apikey
 
     IBMCloudEnvironment(steps) { super(steps) }
-    
+
     IBMCloudEnvironment setHost(String host){
         this.host = host;
         return this;
@@ -37,7 +37,7 @@ class IBMCloudEnvironment extends Environment {
     }
 
     void deploy(Kubernetes k8s, String cluster){
-        steps.sh("ibmcloud ks cluster config --cluster ${cluster}")
+        steps.sh("ibmcloud ks cluster config --cluster ${cluster} --check-version=false")
         steps.sh("kubectl config current-context")
         steps.sh("kubectl get nodes")
     }
