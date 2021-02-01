@@ -20,7 +20,7 @@ class Slack extends Common {
         message.setSteps(steps)
         steps.slackSend(
             channel: "${ch}", 
-            color: message.getColor(), 
+            color: message.color, 
             message: message.getMessage()
         )
     }
