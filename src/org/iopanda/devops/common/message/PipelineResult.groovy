@@ -4,7 +4,10 @@ class PipelineResult extends Message {
     def steps
     String clip
     String pipeline_result
-    PipelineResult(){
+
+    public void setSteps(steps){
+        this.steps = steps
+        this.pipeline_result = steps.currentBuild.currentResult
         switch (pipeline_result) {
             case "SUCCESS":
                 this.color = "good"
@@ -19,10 +22,6 @@ class PipelineResult extends Message {
                 this.color = "danger"
                 this.clip = "unclear"
         }
-    }
-    public void setSteps(steps){
-        this.steps = steps
-        this.pipeline_result = steps.currentBuild.currentResult   
     }
 
     public String getMessage(){        
