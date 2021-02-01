@@ -14,4 +14,8 @@ class Kubernetes extends Common {
     void get(K8sResource resource){
         steps.sh(resource.cmdGet())
     }
+
+    void apply(){
+        
+    }
 }
