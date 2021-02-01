@@ -5,11 +5,11 @@ class StageResult extends Message {
     String stage_result
     StageResult(){
         this.color = "#6ECADC"
-        this.stage_result = steps.currentBuild.currentResult
     }
-    
+
     public void setSteps(steps){
         this.steps = steps
+        this.stage_result = steps.currentBuild.currentResult
     }
 
     public String getMessage(){

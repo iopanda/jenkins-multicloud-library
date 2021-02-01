@@ -5,11 +5,11 @@ class JobInformation extends Message {
     def author_name
     JobInformation(){
         this.color = "#6ECADC"
-        this.author_name = steps.sh(script: "git show -s --pretty=%an", returnStdout: true).trim()
     }
-    
+
     public void setSteps(steps){
         this.steps = steps
+        this.author_name = steps.sh(script: "git show -s --pretty=%an", returnStdout: true).trim()
     }
 
     public String getMessage(){
