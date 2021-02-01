@@ -14,16 +14,16 @@ class PipelineResult extends Message {
         String clip
         switch (status) {
             case "SUCCESS":
-                color = "good"
+                this.color = "good"
                 clip = "done"
             case "FAILURE":
-                color = "danger"
+                this.color = "danger"
                 clip = "failed"
             case "UNSTABLE":
-                color = "warning"
+                this.color = "warning"
                 clip = "unstable"
             default:
-                color = "danger"
+                this.color = "danger"
                 clip = "unclear"
         }
         return "*${status}*:  Job *${steps.env.JOB_NAME}* build *${steps.env.BUILD_NUMBER}* ${clip}!\nCheck pipeline logs for more details: <${steps.env.RUN_DISPLAY_URL}|Click>."
