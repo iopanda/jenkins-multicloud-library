@@ -18,7 +18,6 @@ class Slack extends Common {
 
     void send(String ch, Message message){
         message.setSteps(steps)
-        steps.sh("echo ${message.color}")
         steps.slackSend(
             channel: "${ch}", 
             color: message.color, 
