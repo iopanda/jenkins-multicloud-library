@@ -9,6 +9,7 @@ class StageResult extends Message {
     public String getMessage(){
         this.color = "#6ECADC"
         String stage_result = steps.currentBuild.currentResult
-        return "*Update | ${steps.env.PROJECT_NAME}*: Stage ${steps.env.STAGE_NAME} is ${stage_result}"
+        String name = steps.env.PROJECT_NAME || steps.env.JOB_NAME
+        return "*Update | ${name}*: Stage ${steps.env.STAGE_NAME} is ${stage_result}"
     }
 }

@@ -9,7 +9,7 @@ class PipelineResult extends Message {
     public String getMessage(){
         String clip
         String pipeline_result = steps.currentBuild.currentResult
-        switch (status) {
+        switch (pipeline_result) {
             case "SUCCESS":
                 this.color = "good"
                 clip = "done"
