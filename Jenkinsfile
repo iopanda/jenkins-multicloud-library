@@ -15,6 +15,7 @@ pipeline {
         stage('install ibmcloud-cli') {
             steps {
                 script {
+                    slack.send("app-preview", new JobInformation())
                     cloud.init()
                 }
             }
@@ -22,6 +23,7 @@ pipeline {
         stage('config ibmcloud-cli') {
             steps {
                 script {
+                    slack.send("app-preview", new JobInformation())
                     withFolderProperties {
                         cloud.setRegion("us-south").setIamApiKey("${env.IAM_APIKEY}")
                     }
@@ -31,6 +33,7 @@ pipeline {
         stage('ibmcloud login') {
             steps {
                 script {
+                    slack.send("app-preview", new JobInformation())
                     cloud.connect()
                 }
             }
@@ -38,6 +41,7 @@ pipeline {
         stage('deploy k8s') {
             steps {
                 script {
+                    slack.send("app-preview", new JobInformation())
                     withFolderProperties {
                         cloud.deploy(new Kubernetes(), "${env.CLUSTER_ID}")
                     }
