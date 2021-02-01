@@ -2,16 +2,13 @@ package org.iopanda.devops.common.message
 
 class PipelineResult extends Message {
     def steps
-    String status
-    PipelineResult(String status){
-        this.status = status
-    }
     public void setSteps(steps){
         this.steps = steps
     }
 
     public String getMessage(){
         String clip
+        String pipeline_result = steps.currentBuild.currentResult
         switch (status) {
             case "SUCCESS":
                 this.color = "good"
@@ -26,6 +23,6 @@ class PipelineResult extends Message {
                 this.color = "danger"
                 clip = "unclear"
         }
-        return "*${status}*:  Job *${steps.env.JOB_NAME}* build *${steps.env.BUILD_NUMBER}* ${clip}!\nCheck pipeline logs for more details: <${steps.env.RUN_DISPLAY_URL}|Click>."
+        return "*${pipeline_result}*:  Job *${steps.env.JOB_NAME}* build *${steps.env.BUILD_NUMBER}* ${clip}!\nCheck pipeline logs for more details: <${steps.env.RUN_DISPLAY_URL}|Click>."
     }
 }
