@@ -55,6 +55,6 @@ pipeline {
             }
             post{always{script{slack.send(new StageResult())}}}
         }
-        post{always{script{slack.send(new PipelineResult())}}}
     }
+    post{always{script{slack.send(new PipelineResult())}}}
 }
